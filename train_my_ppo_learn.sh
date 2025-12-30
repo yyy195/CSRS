@@ -2,13 +2,13 @@ set -x
 ENGINE=${1:-vllm}
 export HYDRA_FULL_ERROR=1
 export CUDA_DEVICE_ORDER=PCI_BUS_ID
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=3,2
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
     data.train_files=/data1/yyy25/datasets/geo3k/train.parquet \
     data.val_files=/data1/yyy25/datasets/geo3k/test.parquet \
-    data.train_batch_size=8 \
+    data.train_batch_size=2 \
     data.max_prompt_length=256 \
     data.max_response_length=512 \
     data.filter_overlong_prompts=True \
@@ -37,7 +37,7 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.free_cache_engine=True \
     actor_rollout_ref.rollout.n=4 \
     actor_rollout_ref.rollout.cut_n=3 \
-    actor_rollout_ref.rollout.cut_keep_rate=0.7 \
+    actor_rollout_ref.rollout.cut_keep_rate=0.5 \
     actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=2 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
     algorithm.use_kl_in_reward=False \
@@ -45,7 +45,7 @@ python3 -m verl.trainer.main_ppo \
     trainer.logger='["console","wandb"]' \
     trainer.project_name='8A800_CUT_Batch_Qwen25' \
     trainer.experiment_name='Training_CUT_Qwen25_3b' \
-    trainer.n_gpus_per_node=1 \
+    trainer.n_gpus_per_node=2 \
     trainer.nnodes=1 \
     trainer.save_freq=20 \
     trainer.test_freq=5 \

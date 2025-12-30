@@ -7,9 +7,9 @@ export WANDB_MODE=offline
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
-    data.seed=8 \
-    data.train_files=/home/notebook/code/group/zhengxianwu/Dataset/MMR1-Math-RL-Data-v0-process/train.parquet \
-    data.val_files=/home/notebook/code/group/zhengxianwu/Dataset/MMR1-Math-RL-Data-v0-process/test.parquet \
+    data.seed=1888 \
+    data.train_files=/home/notebook/code/group/zhengxianwu/Project/Project2/dataset-all/geometry3k-verl/train.parquet \
+    data.val_files=/home/notebook/code/group/zhengxianwu/Project/Project2/dataset-all/geometry3k-verl/test.parquet \
     data.train_batch_size=256 \
     data.max_prompt_length=1024 \
     data.max_response_length=1536 \
@@ -39,13 +39,14 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.free_cache_engine=True \
     actor_rollout_ref.rollout.n=8 \
     actor_rollout_ref.rollout.cut_n=5 \
+    actor_rollout_ref.rollout.cut_keep_rate=0.3 \
     actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=4 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
     algorithm.use_kl_in_reward=False \
     trainer.critic_warmup=0 \
     trainer.logger='["console","wandb"]' \
-    trainer.project_name='yyy-MMR-mrr-ablation' \
-    trainer.experiment_name='yyy-MMR-mrr-ablation' \
+    trainer.project_name='yyy-cut_rate_03' \
+    trainer.experiment_name='yyy-cut_rate_03' \
     trainer.n_gpus_per_node=8 \
     trainer.nnodes=1 \
     trainer.save_freq=20 \
