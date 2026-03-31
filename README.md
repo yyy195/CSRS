@@ -1,38 +1,34 @@
 <div align="center">
 <hr>
-<font size="6"><i><b>DAGait: Generalized Skeleton-Guided Data Alignment for Gait Recognition</b></i></font>
+<font size="6"><i><b>Stabilizing Unsupervised Self-Evolution of MLLMs via Continuous Softened Retracing reSampling</b></i></font>
 <br><br>
 <a href='https://arxiv.org/pdf/2503.18830'><img src='https://img.shields.io/badge/arXiv-2503.18830-b31b1b.svg'></a>
 &nbsp;
 <a href='https://dingwu1021.github.io/DAGait/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 <br><br>
-<i>Zhengxian Wu*, Chuanrui Zhang*, Hangrui Xu, Peng Jiao, Haoqian Wang†</i>
+<i>Yunyao Yu*, Zhengxian Wu*, Zhuohong Chen*, Hangrui Xu, Zirui Liao, Xiangwen Deng, Zhifang Liu, Senyuan Shi, Haoqian Wang†</i>
 </div>
 
 
 
 
-<img src='assets/baseline.png' style="width: 100%; height: 100%">
+<img src='pics/ pipeline_arr_v2.png' style="width: 100%; height: 100%">
 
 ## 🔆 News
 🔥🔥 (2025.03) Paper is available on arXiv: [DAGait: Generalized Skeleton-Guided Data Alignment for Gait Recognition](https://arxiv.org/pdf/2503.18830)
 
-🔥🔥 (2025.03) This paper has been accepted to **ICME 2025**.
-
 ## 👀 Abstract
-Gait recognition is emerging as a promising and innovative area within the field of computer vision, widely applied to remote person identification. Although existing gait recognition methods have achieved substantial success in controlled labora tory datasets, their performance often declines significantly when transitioning to wild datasets. We argue that the performance gap can be primarily attributed to the spatio-temporal distribution inconsistencies present in wild datasets, where subjects appear at varying angles, positions, and distances across the frames. To achieve accurate gait recognition in the wild, we propose a skeleton-guided silhouette alignment strategy, which uses prior knowledge of the skeletons to perform affine transformations on the corresponding silhouettes. To the best of our knowledge, this is the first study to explore the impact of data alignment on gait recognition. We conducted extensive experiments across multiple datasets and network architectures, and the results demonstrate the significant advantages of our proposed align ment strategy. Specifically, on the challenging Gait3D dataset, our method achieved an average performance improvement of 7.9% across all evaluated networks. Furthermore, our method achieves substantial improvements on cross-domain datasets, with accuracy improvements of up to 24.0%.
+In the unsupervised self-evolution of Multimodal Large Language Models, the quality of feedback signals during post-training is pivotal for stable and effective learning. However, existing self-evolution methods predominantly rely on majority voting to select the most frequent output as the pseudo-golden answer, which may stem from the model's intrinsic biases rather than guaranteeing the objective correctness of the reasoning paths. To counteract the degradation, we propose \textbf{C}ontinuous \textbf{S}oftened \textbf{R}etracing re\textbf{S}ampling (\textbf{CSRS}) in MLLM self-evolution. Specifically, we introduce a Retracing Re-inference Mechanism (\textbf{RRM}) that the model re-inferences from  anchor points to expand the exploration of long-tail reasoning paths. Simultaneously, we propose Softened Frequency Reward (\textbf{SFR}), which replaces binary rewards with continuous signals, calibrating reward  based on the answers' frequency across sampled reasoning sets. Furthermore, incorporated with Visual Semantic Perturbation (\textbf{VSP}), CSRS ensures the model prioritizes mathematical logic over visual superficiality. Experimental results demonstrate that CSRS significantly enhances the reasoning performance of Qwen2.5-VL-7B on benchmarks such as MathVision. We achieve state-of-the-art (SOTA) results in unsupervised self-evolution on geometric tasks.
 
 ## ⚙️ Setup
 
 ### Install Environment via Anaconda (Recommended)
 ```bash
-conda create -n dagait python=3.9.0
-conda activate dagait
-pip install -r requirements.txt
+conda env create -f environment.yml
 ```
 
 
-### 💫 Generate training data
+### 💫 Prepare training data
 #### 1. Generate aligned silhouette images
 You need to change the skeleton path, silhouette path, output path, and log path to your desired locations.
 ```bash
@@ -72,4 +68,4 @@ Please consider citing our paper if our code are useful:
 
 
 ## 🙏 Acknowledgements
-- The codebase is based on [OpenGait](https://github.com/ShiqiYu/OpenGait)
+- The codebase is based on [VeRL](https://github.com/verl-project/verl)
