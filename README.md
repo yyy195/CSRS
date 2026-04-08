@@ -36,11 +36,14 @@ This repository is released under the Apache 2.0 license.
 ## 😉 Citation
 Please consider citing our paper if our code are useful:
 ```bib
-@article{wu2025dagait,
-      title={DAGait: Generalized Skeleton-Guided Data Alignment for Gait Recognition}, 
-      author={Zhengxian Wu and Chuanrui Zhang and Hangrui Xu and Peng Jiao and Haoqian Wang},
-      journal={arXiv preprint arXiv:2503.18830},
-      year={2025}
+@misc{yu2026stabilizingunsupervisedselfevolutionmllms,
+      title={Stabilizing Unsupervised Self-Evolution of MLLMs via Continuous Softened Retracing reSampling}, 
+      author={Yunyao Yu and Zhengxian Wu and Zhuohong Chen and Hangrui Xu and Zirui Liao and Xiangwen Deng and Zhifang Liu and Senyuan Shi and Haoqian Wang},
+      year={2026},
+      eprint={2604.03647},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2604.03647}, 
 }
 ```
 
